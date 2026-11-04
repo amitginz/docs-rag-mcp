@@ -1,0 +1,4 @@
+chromadb>=1.0
+mcp>=1.0,<2
+anthropic>=0.40
+pytest>=8

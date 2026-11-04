@@ -1,0 +1,21 @@
+{
+  "in_scope": [
+    {"q": "How do I stop a blocking call from freezing the event loop?", "source": "python-asyncio.md"},
+    {"q": "How can one failed task not cancel the others in gather?", "source": "python-asyncio.md"},
+    {"q": "Which HTTP status code should I return after creating a resource?", "source": "rest-api-design.md"},
+    {"q": "How do I prevent duplicate payments when a client retries a POST?", "source": "rest-api-design.md"},
+    {"q": "Why should Dockerfile instructions be ordered from least to most frequently changed?", "source": "docker-basics.md"},
+    {"q": "How do containers on the same network find each other?", "source": "docker-basics.md"},
+    {"q": "Which columns should come first in a composite index?", "source": "sql-indexing.md"},
+    {"q": "Why does LOWER(email) in a WHERE clause skip the index?", "source": "sql-indexing.md"},
+    {"q": "When is it safe to use git revert instead of reset?", "source": "git-workflow.md"},
+    {"q": "Should I rebase commits that teammates already pulled?", "source": "git-workflow.md"},
+    {"q": "How do I reduce hallucinations in a RAG application?", "source": "llm-guardrails.md"},
+    {"q": "What metrics measure retrieval quality?", "source": "llm-guardrails.md"}
+  ],
+  "out_of_scope": [
+    "What is the capital of France?",
+    "Who won the 2018 football world cup?",
+    "What is the best recipe for chocolate cake?"
+  ]
+}
