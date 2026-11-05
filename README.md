@@ -61,7 +61,11 @@ python -m pytest -q         # unit tests + retrieval quality gate (also runs in 
 
 Current results on the sample corpus: hit@3 = 1.0, MRR = 1.0, refusal rate = 1.0. The corpus is small, so these numbers mostly protect against regressions; they are not a general benchmark.
 
+`eval/eval_hard.json` is a tougher held-out set: 16 loosely worded in-scope questions (all found in the top 3) and 6 out-of-scope questions on topics near the docs, such as MongoDB indexes or `git cherry-pick`. It is not part of the CI gate. Only 1 of those 6 is refused by the `RAG_MAX_DISTANCE` cutoff, because near-topic questions score 0.54-0.76 while correct matches score up to 0.75.
+
 ## Limitations
+
+- The distance cutoff refuses unrelated questions but not near-topic ones the docs do not cover; they can be answered from an off-topic chunk. A relevance check (for example an LLM verifying that the chunk answers the question) would be needed to fix this. The agent skill tells the agent to check chunk content itself.
 
 - Sample corpus is six short markdown files; real corpora need larger eval sets.
 - Only markdown is supported (no PDF/OCR parsing yet).
