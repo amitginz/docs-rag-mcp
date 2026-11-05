@@ -17,7 +17,11 @@ Requires the `docs-rag` MCP server to be configured (see the repo README). Tools
 
 1. Rephrase the user's question into the terms the docs likely use (a short noun phrase beats a full sentence). If the first search is weak, try one or two rephrasings before giving up.
 2. Use a larger `k` (6-8) for broad questions that may span several docs.
-3. Treat results with high `distance` as weak matches. If every chunk is far, say the docs do not seem to cover the topic rather than stretching a chunk to fit.
+3. Judge matches by `distance` (cosine, lower is closer). On the sample corpus, correct chunks scored 0.26-0.48 (one at 0.68) and out-of-scope questions scored 0.85+. Use these as a guide:
+   - below 0.5: strong match, answer from it.
+   - 0.5-0.75: plausible, check that the chunk really answers the question.
+   - above 0.75 (the `RAG_MAX_DISTANCE` default that `ask_docs` applies): treat as not covered. Say the docs do not seem to cover the topic rather than stretching a chunk to fit.
+   Other corpora may score differently, so these numbers are a starting point.
 4. Never present content as coming from the docs unless a returned chunk supports it.
 
 ## Answer format
