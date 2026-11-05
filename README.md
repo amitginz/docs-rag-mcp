@@ -46,6 +46,10 @@ Add to your MCP client configuration (for example Claude Desktop's `claude_deskt
 
 Point it at your own documents with `RAG_DOCS_DIR=/path/to/markdown`.
 
+### Agent skill
+
+`skills/docs-rag/SKILL.md` tells an agent when and how to use the tools (which tool to pick, how to rephrase queries, how to treat weak matches). To use it in Claude Code, copy it to `~/.claude/skills/docs-rag/`.
+
 ## Evaluation and tests
 
 `eval/eval_set.json` holds 12 questions with the document that should answer each, plus 3 out-of-scope questions that must be refused.
