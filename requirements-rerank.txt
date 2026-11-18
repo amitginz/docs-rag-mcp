@@ -1,0 +1,2 @@
+# Optional: cross-encoder relevance gate (set RAG_RERANK=1)
+fastembed>=0.5

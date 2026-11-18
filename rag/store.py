@@ -17,6 +17,7 @@ class Hit:
     heading: str
     text: str
     distance: float
+    score: float | None = None  # reranker relevance score, set only when a gate scored this hit
 
 
 class DocStore:
