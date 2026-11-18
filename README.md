@@ -46,6 +46,10 @@ Add to your MCP client configuration (for example Claude Desktop's `claude_deskt
 
 Point it at your own documents with `RAG_DOCS_DIR=/path/to/markdown`.
 
+### Agent skill
+
+`skills/docs-rag/SKILL.md` tells an agent when and how to use the tools (which tool to pick, how to rephrase queries, how to treat weak matches). To use it in Claude Code, copy it to `~/.claude/skills/docs-rag/`.
+
 ## Evaluation and tests
 
 `eval/eval_set.json` holds 12 questions with the document that should answer each, plus 3 out-of-scope questions that must be refused.
@@ -57,7 +61,33 @@ python -m pytest -q         # unit tests + retrieval quality gate (also runs in 
 
 Current results on the sample corpus: hit@3 = 1.0, MRR = 1.0, refusal rate = 1.0. The corpus is small, so these numbers mostly protect against regressions; they are not a general benchmark.
 
+`eval/eval_hard.json` is a tougher held-out set: 16 loosely worded in-scope questions (all found in the top 3) and 6 out-of-scope questions on topics near the docs, such as MongoDB indexes or `git cherry-pick`. It is not part of the CI gate. Only 1 of those 6 is refused by the `RAG_MAX_DISTANCE` cutoff, because near-topic questions score 0.54-0.76 while correct matches score up to 0.75.
+
+### Optional relevance gate (cross-encoder)
+
+Set `RAG_RERANK=1` (after `pip install -r requirements-rerank.txt`) to add a second stage: a small
+cross-encoder (`ms-marco-MiniLM-L-6-v2` via ONNX, no torch) reads each *(question, passage)* pair
+and drops passages scoring below `RAG_RERANK_MIN` (default -4.0), re-ordering the rest. If nothing
+survives, the pipeline refuses. It is off by default.
+
+Measured with AgentProbe on `eval/eval_holdout.json` (15 in-scope, 10 near-topic
+out-of-scope questions, written before any tuning and scored once per configuration):
+
+| Configuration | In-scope found | Refused | Pass |
+|---|---|---|---|
+| Default (distance 0.75, no gate) | 15/15 | 3/10 | 18/25 |
+| Gate, min -10 (best on the training sets) | 15/15 | 5/10 | 20/25 |
+| Gate, min -4 | 12/15 | 8/10 | 20/25 |
+| Distance cutoff only, 0.60 | 13/15 | 8/10 | 21/25 |
+
+The gate helps over the default (min -10 adds two correct refusals and loses nothing), but it did
+**not** clearly beat simply tightening the distance cutoff, and none of the differences are
+statistically significant at this sample size (exact McNemar p = 0.5 and 0.73 against the
+default). Treat it as a modest, unproven improvement; a larger eval set is the next step.
+
 ## Limitations
+
+- The distance cutoff refuses unrelated questions but not near-topic ones the docs do not cover; they can be answered from an off-topic chunk. The optional relevance gate above reduces this but does not eliminate it. The agent skill tells the agent to check chunk content itself.
 
 - Sample corpus is six short markdown files; real corpora need larger eval sets.
 - Only markdown is supported (no PDF/OCR parsing yet).

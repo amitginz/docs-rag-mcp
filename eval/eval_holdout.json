@@ -1,0 +1,32 @@
+{
+  "_note": "Held-out set written BEFORE tuning the relevance gate. Never used to choose thresholds; evaluate once per candidate design.",
+  "in_scope": [
+    {"q": "Why does my Docker build re-install dependencies every time I change one line of code?", "source": "docker-basics.md"},
+    {"q": "How do two services in my compose setup talk to each other?", "source": "docker-basics.md"},
+    {"q": "Can I reach a container's web server from my laptop?", "source": "docker-basics.md"},
+    {"q": "I want to run many awaitables at once but keep going if one of them explodes", "source": "python-asyncio.md"},
+    {"q": "What is the right way to run heavy number crunching without freezing my coroutines?", "source": "python-asyncio.md"},
+    {"q": "What does a 403 response signify, and how is it different from a 401?", "source": "rest-api-design.md"},
+    {"q": "Is it safe to repeat a PUT request?", "source": "rest-api-design.md"},
+    {"q": "Why must list endpoints never return everything at once?", "source": "rest-api-design.md"},
+    {"q": "Why won't my index get used for WHERE LOWER(email) = 'x'?", "source": "sql-indexing.md"},
+    {"q": "Does an index on (country, city) help a query that filters only by city?", "source": "sql-indexing.md"},
+    {"q": "How do I check whether the database actually uses my index?", "source": "sql-indexing.md"},
+    {"q": "How should a commit message be worded?", "source": "git-workflow.md"},
+    {"q": "What is a safe way to undo a commit that is already on a shared branch?", "source": "git-workflow.md"},
+    {"q": "How can a team catch a drop in answer quality before merging a change?", "source": "llm-guardrails.md"},
+    {"q": "How does an LLM app make documents searchable by meaning?", "source": "llm-guardrails.md"}
+  ],
+  "out_of_scope": [
+    "How do I set up a Docker Swarm cluster?",
+    "How do I write a multi-stage Dockerfile for a Go service?",
+    "How do I implement OAuth2 refresh tokens in my API?",
+    "How do I rate-limit an API with a token bucket?",
+    "How do I partition a huge Postgres table?",
+    "How do I sign my Git commits with GPG?",
+    "How do I squash my last three commits into one?",
+    "How do I prevent prompt injection in my chatbot?",
+    "How do I quantize a model to 4 bits?",
+    "How do I profile memory usage of a Python script?"
+  ]
+}

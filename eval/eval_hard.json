@@ -1,0 +1,28 @@
+{
+  "in_scope": [
+    {"q": "My async web scraper hangs forever when a server stops responding", "source": "python-asyncio.md"},
+    {"q": "What happens if I call time.sleep inside async code?", "source": "python-asyncio.md"},
+    {"q": "Do gather results come back in the order I passed them?", "source": "python-asyncio.md"},
+    {"q": "The client got a 409, what does that mean?", "source": "rest-api-design.md"},
+    {"q": "How should I page through large result sets in my API?", "source": "rest-api-design.md"},
+    {"q": "Is it safe to retry a DELETE request?", "source": "rest-api-design.md"},
+    {"q": "Why does my docker build reinstall all the packages every time?", "source": "docker-basics.md"},
+    {"q": "How do I keep database data after the container is removed?", "source": "docker-basics.md"},
+    {"q": "Run the API, database and cache together with one command", "source": "docker-basics.md"},
+    {"q": "I have an index on (country, city) but my query only filters on city", "source": "sql-indexing.md"},
+    {"q": "Too many indexes are slowing down my inserts", "source": "sql-indexing.md"},
+    {"q": "How do I undo a commit that is already pushed to main?", "source": "git-workflow.md"},
+    {"q": "How long should the first line of a commit message be?", "source": "git-workflow.md"},
+    {"q": "How do I make the model say it does not know instead of guessing?", "source": "llm-guardrails.md"},
+    {"q": "Ways to lower token spend in my app", "source": "llm-guardrails.md"},
+    {"q": "How do I validate JSON output from a model?", "source": "llm-guardrails.md"}
+  ],
+  "out_of_scope": [
+    "How do I configure a Kubernetes ingress controller?",
+    "How do I use git cherry-pick?",
+    "How do I create an index in MongoDB?",
+    "How does GraphQL handle pagination?",
+    "How do I fine-tune a language model?",
+    "How do I deploy a Flask app to AWS Lambda?"
+  ]
+}
