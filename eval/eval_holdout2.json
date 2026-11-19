@@ -1,0 +1,187 @@
+{
+  "_note": "Second held-out set, written from the docs BEFORE any scoring. 36 in-scope questions (6 per document) and 36 near-topic out-of-scope questions (6 per document). Pre-registered evaluation: score only the four fixed configurations listed in the commit message; do not use these questions to choose thresholds.",
+  "in_scope": [
+    {
+      "q": "What's the difference between an image and a container?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "Why should I add a .dockerignore file?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "What does -p 8080:80 do when I start a container?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "Which kind of base image keeps my build small?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "What isolates one container from another and limits its resources?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "Do containers each run their own operating system kernel?",
+      "source": "docker-basics.md"
+    },
+    {
+      "q": "What is a coroutine and when does it actually run?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "How can thousands of network requests share a single thread?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "How do I start a coroutine running in the background while I do other work?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "Which call gives an awaitable a deadline in Python 3.11 and later?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "Can a process pool help with CPU-heavy work in async code?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "Does asyncio run my code on multiple threads by default?",
+      "source": "python-asyncio.md"
+    },
+    {
+      "q": "Which HTTP method updates only part of a resource?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "What is the difference between PUT and PATCH?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "Which status code signals success with no response body?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "What status should I return when the caller is not authenticated?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "What shape should error responses have?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "Is it acceptable for a GET request to change data?",
+      "source": "rest-api-design.md"
+    },
+    {
+      "q": "Why can't a B-tree index help with LIKE '%abc'?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "What data structure do most relational database indexes use?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "Which column should come first in a composite index?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "Why shouldn't I just index every column?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "Do indexes make INSERT and UPDATE faster or slower?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "What kinds of lookups can a B-tree index serve efficiently?",
+      "source": "sql-indexing.md"
+    },
+    {
+      "q": "How long should a feature branch live?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "How big should a pull request be?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "What is the difference between rebasing and merging?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "In which situation must I never rebase?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "What does git reset --hard do and when is it acceptable?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "How many characters should a commit's summary line have?",
+      "source": "git-workflow.md"
+    },
+    {
+      "q": "What is an embedding?",
+      "source": "llm-guardrails.md"
+    },
+    {
+      "q": "What does retrieval-augmented generation do before it calls the model?",
+      "source": "llm-guardrails.md"
+    },
+    {
+      "q": "Why should long model answers be streamed?",
+      "source": "llm-guardrails.md"
+    },
+    {
+      "q": "Is caching repeated LLM requests worthwhile?",
+      "source": "llm-guardrails.md"
+    },
+    {
+      "q": "Which metrics measure retrieval quality?",
+      "source": "llm-guardrails.md"
+    },
+    {
+      "q": "What is a vector database used for in a RAG pipeline?",
+      "source": "llm-guardrails.md"
+    }
+  ],
+  "out_of_scope": [
+    "How do I push an image to a private registry?",
+    "How do I use Docker secrets?",
+    "How do I run the Docker daemon in rootless mode?",
+    "How do I add a health check to a Dockerfile?",
+    "What is the difference between ENTRYPOINT and CMD?",
+    "How do I package a Docker app as a Helm chart?",
+    "How do I use asyncio.Queue for a producer-consumer pattern?",
+    "How do I run asyncio code inside a Jupyter notebook?",
+    "What does asyncio.Semaphore do?",
+    "How do I cancel a running asyncio task?",
+    "How do I make parallel HTTP requests with aiohttp?",
+    "What is uvloop and does it speed up asyncio?",
+    "How should I version my REST API?",
+    "How do I return rate-limit information to API clients?",
+    "How does HATEOAS work?",
+    "What is the difference between REST and GraphQL?",
+    "How do I secure an API with JWT tokens?",
+    "How do I document an API with OpenAPI?",
+    "How do I tune a hash join?",
+    "How do I create a partial index in PostgreSQL?",
+    "What is a covering index?",
+    "How do I rebuild a fragmented index?",
+    "How does a GIN index work?",
+    "What is the difference between clustered and non-clustered indexes?",
+    "How do I resolve a merge conflict?",
+    "How do I use git bisect to find a bug?",
+    "What does git stash do?",
+    "How do I set up git hooks?",
+    "How do I use git submodules?",
+    "How do I tag a release?",
+    "How do I choose a chunk size for my documents?",
+    "How does BM25 compare to dense retrieval?",
+    "What is the difference between temperature and top-p?",
+    "How do I implement function calling?",
+    "How do I detect toxic content in model outputs?",
+    "How do I choose an embedding model?"
+  ]
+}

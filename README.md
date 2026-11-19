@@ -85,6 +85,24 @@ The gate helps over the default (min -10 adds two correct refusals and loses not
 statistically significant at this sample size (exact McNemar p = 0.5 and 0.73 against the
 default). Treat it as a modest, unproven improvement; a larger eval set is the next step.
 
+#### Update: second held-out set (72 questions, pre-registered)
+
+`eval/eval_holdout2.json` (36 in-scope, 36 near-topic out-of-scope) was written before scoring, and
+four configurations were fixed in advance and scored once each:
+
+| Configuration | In-scope found | Refused | vs default (exact McNemar) |
+|---|---|---|---|
+| Default (distance 0.75, no gate) | 36/36 | 10/36 | n/a |
+| Gate, min -10 | 35/36 | 11/36 | p = 1.00 (no effect) |
+| Gate, min -4 (the default `RAG_RERANK_MIN`) | 34/36 | 24/36 | p = 0.004 |
+| Distance cutoff only, 0.60 | 32/36 | 26/36 | p = 0.012 |
+
+The gate setting selected on the smaller sets (-10) did not replicate. A gate at -4 and a plain
+`RAG_MAX_DISTANCE=0.60` both lift near-topic refusals from 28% to roughly 70% and are statistically
+indistinguishable from each other, at the cost of 2-4 of 36 in-scope questions. If near-topic refusal
+matters more than recall, lowering `RAG_MAX_DISTANCE` to about 0.60 is the simpler option; the gate
+is the alternative if you want to keep a looser distance cutoff. The shipped default is unchanged.
+
 ## Limitations
 
 - The distance cutoff refuses unrelated questions but not near-topic ones the docs do not cover; they can be answered from an off-topic chunk. The optional relevance gate above reduces this but does not eliminate it. The agent skill tells the agent to check chunk content itself.
